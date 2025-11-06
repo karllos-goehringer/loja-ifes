@@ -54,7 +54,7 @@ class _PerfilPageState extends State<PerfilPage> {
                 const SizedBox(height: 20),
                 Container(
                   alignment: Alignment.center,
-                  child: const CircleAvatar(
+                  child: CircleAvatar(
                     radius: 50,
                     backgroundImage: NetworkImage(perfil.imagem),
                   ),
