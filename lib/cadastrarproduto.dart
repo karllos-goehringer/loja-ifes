@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/dataset.dart';
-import 'package:flutter_application_1/main.dart'; 
+import 'package:loja/dataset.dart';
+import 'package:loja/main.dart';
 
 class CadastroProdutoPage extends StatefulWidget {
   final String title;
@@ -72,7 +72,7 @@ class _CadastroProdutoPageState extends State<CadastroProdutoPage> {
                   },
                 ),
                 const SizedBox(height: 16),
-                  TextFormField(
+                TextFormField(
                   controller: _descController,
                   decoration: const InputDecoration(
                     labelText: 'Descrição',
@@ -113,7 +113,8 @@ class _CadastroProdutoPageState extends State<CadastroProdutoPage> {
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.attach_money),
                   ),
-                  keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                  keyboardType:
+                      const TextInputType.numberWithOptions(decimal: true),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Informe o valor';
@@ -132,13 +133,14 @@ class _CadastroProdutoPageState extends State<CadastroProdutoPage> {
                     icon: const Icon(Icons.save),
                     label: const Text(
                       'Salvar Produto',
-                      style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                     ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 150, 240, 156),
                       padding: const EdgeInsets.symmetric(vertical: 14),
                       shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
@@ -156,10 +158,10 @@ class _CadastroProdutoPageState extends State<CadastroProdutoPage> {
           });
         },
         items: [
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             label: 'Principal',
-            icon: Icon(Icons.home_outlined),
-            activeIcon: Icon(Icons.home),
+            icon: const Icon(Icons.home_outlined),
+            activeIcon: const Icon(Icons.home),
           ),
           BottomNavigationBarItem(
             label: 'Compras',
@@ -171,6 +173,12 @@ class _CadastroProdutoPageState extends State<CadastroProdutoPage> {
             label: 'Cadastrar Produto',
             icon: const Icon(Icons.bookmark_add_outlined),
             activeIcon: const Icon(Icons.bookmark_add),
+            backgroundColor: Colors.green[600],
+          ),
+          BottomNavigationBarItem(
+            label: 'Perfil',
+            icon: const Icon(Icons.person_outlined),
+            activeIcon: const Icon(Icons.person),
             backgroundColor: Colors.green[600],
           ),
         ],

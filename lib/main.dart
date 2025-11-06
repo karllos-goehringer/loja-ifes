@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/cadastrarproduto.dart';
-import 'package:flutter_application_1/carrinho.dart';
-import 'package:flutter_application_1/dataset.dart';
+import 'package:loja/cadastrarproduto.dart';
+import 'package:loja/carrinho.dart';
+import 'package:loja/dataset.dart';
+import 'package:loja/perfil.dart';
 
 int _selectedIndex = 0;
 List carrinho = [];
@@ -21,7 +22,6 @@ List produtos = [
     "valor": 15.00,
     "qtd": 200,
     "qtdSelecionada": 1,
-
   }),
   Produto(
     id: 3,
@@ -61,6 +61,13 @@ void carregarPagina(index, BuildContext context) {
         ),
       );
       break;
+    case 3:
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const PerfilPage(),
+        ),
+      );
   }
 }
 
@@ -72,10 +79,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Lojinha IFES', 
+      title: 'Lojinha IFES',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorSchemeSeed: Colors.green),
       home: const MyHomePage(title: 'Lojinha IFES'),
+      
     );
   }
 }
@@ -138,8 +146,7 @@ class _MyHomePageState extends State {
                     },
                   ),
                   Text(
-                    produtos[index].qtdSelecionada
-                        .toString(), 
+                    produtos[index].qtdSelecionada.toString(),
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -172,7 +179,7 @@ class _MyHomePageState extends State {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
+        currentIndex: 0,
         onTap: (int index) {
           setState(() {
             carregarPagina(index, context);
@@ -183,6 +190,8 @@ class _MyHomePageState extends State {
             label: 'Principal',
             icon: const Icon(Icons.home_outlined),
             activeIcon: const Icon(Icons.home),
+            backgroundColor: Colors.green[600],
+
           ),
           BottomNavigationBarItem(
             label: 'Compras',
@@ -194,6 +203,12 @@ class _MyHomePageState extends State {
             label: 'Cadastrar Produto',
             icon: const Icon(Icons.bookmark_add_outlined),
             activeIcon: const Icon(Icons.bookmark_add),
+            backgroundColor: Colors.green[600],
+          ),
+          BottomNavigationBarItem(
+            label: 'Perfil',
+            icon: const Icon(Icons.person_outlined),
+            activeIcon: const Icon(Icons.person),
             backgroundColor: Colors.green[600],
           ),
         ],

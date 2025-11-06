@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/main.dart';
+import 'package:loja/main.dart';
 
 class ComprasPage extends StatefulWidget {
   final String title;
@@ -57,7 +57,7 @@ class _ComprasPageState extends State {
                           Icons.remove_shopping_cart,
                           color: Colors.red,
                         ),
-                        tooltip: 'Remover do carrinho', 
+                        tooltip: 'Remover do carrinho',
                       ),
                     ],
                   ),
@@ -96,10 +96,10 @@ class _ComprasPageState extends State {
           });
         },
         items: [
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             label: 'Principal',
-            icon: Icon(Icons.home_outlined),
-            activeIcon: Icon(Icons.home),
+            icon: const Icon(Icons.home_outlined),
+            activeIcon: const Icon(Icons.home),
           ),
           BottomNavigationBarItem(
             label: 'Compras',
@@ -111,6 +111,12 @@ class _ComprasPageState extends State {
             label: 'Cadastrar Produto',
             icon: const Icon(Icons.bookmark_add_outlined),
             activeIcon: const Icon(Icons.bookmark_add),
+            backgroundColor: Colors.green[600],
+          ),
+          BottomNavigationBarItem(
+            label: 'Perfil',
+            icon: const Icon(Icons.person_outlined),
+            activeIcon: const Icon(Icons.person),
             backgroundColor: Colors.green[600],
           ),
         ],
