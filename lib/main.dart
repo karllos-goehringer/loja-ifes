@@ -49,7 +49,7 @@ void carregarPagina(index, BuildContext context) {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => ComprasPage(title: 'Carrinho Compras'),
+          builder: (context) => const ComprasPage(title: 'Carrinho Compras'),
         ),
       );
       break;
@@ -57,7 +57,7 @@ void carregarPagina(index, BuildContext context) {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => CadastroProdutoPage(title: 'Cadastrar Produto'),
+          builder: (context) => const CadastroProdutoPage(title: 'Cadastrar Produto'),
         ),
       );
       break;
@@ -115,7 +115,7 @@ class _MyHomePageState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Lojinha IFES')),
+      appBar: AppBar(title: const Text('Lojinha IFES')),
       body: Center(
         child: ListView.builder(
           itemCount: produtos.length,

@@ -98,12 +98,12 @@ class _CadastroPessoaPageState extends State<FormPerfil> {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _salvarFormulario,
-                child: const Text('Salvar Alterações'),
                 style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 150, 240, 156),
                       padding: const EdgeInsets.symmetric(vertical: 14),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),)),
+                child: const Text('Salvar Alterações'),
               ),
             ],
           ),

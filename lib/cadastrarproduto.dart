@@ -158,10 +158,10 @@ class _CadastroProdutoPageState extends State<CadastroProdutoPage> {
           });
         },
         items: [
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             label: 'Principal',
-            icon: const Icon(Icons.home_outlined),
-            activeIcon: const Icon(Icons.home),
+            icon: Icon(Icons.home_outlined),
+            activeIcon: Icon(Icons.home),
           ),
           BottomNavigationBarItem(
             label: 'Compras',
