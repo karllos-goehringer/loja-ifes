@@ -22,7 +22,6 @@ class _CadastroPessoaPageState extends State<FormPerfil> {
   late TextEditingController _enderecoController;
   late TextEditingController _profissaoController;
   late TextEditingController _fotoController;
-
   @override
   void initState() {
     super.initState();
