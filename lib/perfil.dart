@@ -49,6 +49,15 @@ class _PerfilPageState extends State<PerfilPage> {
                   borderRadius: BorderRadius.circular(12)),
               child: ListView(padding: const EdgeInsets.all(16), children: [
                 const SizedBox(height: 20),
+               Container(
+                alignment: Alignment.center,
+                child: const CircleAvatar(
+                  radius: 50,
+                  backgroundImage: NetworkImage('https://mercadohoje.uai.com.br/wp-content/uploads/2022/02/venda-vasco-1280x720.jpg'),
+                
+                ),
+                
+               ),
                 _info('Nome', perfil.nome),
                 _info('Idade', '${perfil.idade}'),
                 _info('E-mail', perfil.email),
