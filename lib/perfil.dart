@@ -16,7 +16,7 @@ class PerfilData {
   String telefone;
   String endereco;
   String profissao;
-
+  String imagem;
   PerfilData({
     required this.nome,
     required this.idade,
@@ -24,6 +24,7 @@ class PerfilData {
     required this.telefone,
     required this.endereco,
     required this.profissao,
+    required this.imagem,
   });
 }
 
@@ -34,6 +35,8 @@ PerfilData perfil = PerfilData(
   telefone: '(00) 00000-0000',
   endereco: 'Seu endereço, 123',
   profissao: 'Sua profissão',
+  imagem:
+      'https://mercadohoje.uai.com.br/wp-content/uploads/2022/02/venda-vasco-1280x720.jpg',
 );
 
 class _PerfilPageState extends State<PerfilPage> {
@@ -49,15 +52,13 @@ class _PerfilPageState extends State<PerfilPage> {
                   borderRadius: BorderRadius.circular(12)),
               child: ListView(padding: const EdgeInsets.all(16), children: [
                 const SizedBox(height: 20),
-               Container(
-                alignment: Alignment.center,
-                child: const CircleAvatar(
-                  radius: 50,
-                  backgroundImage: NetworkImage('https://mercadohoje.uai.com.br/wp-content/uploads/2022/02/venda-vasco-1280x720.jpg'),
-                
+                Container(
+                  alignment: Alignment.center,
+                  child: const CircleAvatar(
+                    radius: 50,
+                    backgroundImage: NetworkImage(perfil.imagem),
+                  ),
                 ),
-                
-               ),
                 _info('Nome', perfil.nome),
                 _info('Idade', '${perfil.idade}'),
                 _info('E-mail', perfil.email),
@@ -70,31 +71,26 @@ class _PerfilPageState extends State<PerfilPage> {
                         icon: const Icon(Icons.edit),
                         label: const Text('Editar Perfil'),
                         style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 150, 240, 156),
-                      padding: const EdgeInsets.symmetric(vertical: 14),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),)),
+                            backgroundColor:
+                                const Color.fromARGB(255, 150, 240, 156),
+                            padding: const EdgeInsets.symmetric(vertical: 14),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            )),
                         onPressed: () async {
                           final resultado = await Navigator.push(
-                          context,
-                           MaterialPageRoute(
-                          builder: (context) => FormPerfil(perfil: perfil),
-                          
-                          ),
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => FormPerfil(perfil: perfil),
+                            ),
                           );
-                           if (resultado != null && resultado is PerfilData) {
-                             setState(() {
+                          if (resultado != null && resultado is PerfilData) {
+                            setState(() {
                               perfil = resultado;
-                           });
-                           }
-
-                        }
-                    )
-                  )
-                ]
-              )
-            )
-          ),
+                            });
+                          }
+                        }))
+              ]))),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 3,
         onTap: (int index) {
@@ -130,6 +126,7 @@ class _PerfilPageState extends State<PerfilPage> {
       ),
     );
   }
+
   Widget _info(String label, String value) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

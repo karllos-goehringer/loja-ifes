@@ -4,7 +4,7 @@ import 'package:loja/perfil.dart';
 
 
 class FormPerfil extends StatefulWidget {
-  final PerfilData perfil; // objeto passado com os dados iniciais
+  final PerfilData perfil; 
 
   const FormPerfil({super.key, required this.perfil});
 
@@ -21,6 +21,7 @@ class _CadastroPessoaPageState extends State<FormPerfil> {
   late TextEditingController _telefoneController;
   late TextEditingController _enderecoController;
   late TextEditingController _profissaoController;
+  late TextEditingController _fotoController;
 
   @override
   void initState() {
@@ -31,6 +32,7 @@ class _CadastroPessoaPageState extends State<FormPerfil> {
     _telefoneController = TextEditingController(text: widget.perfil.telefone);
     _enderecoController = TextEditingController(text: widget.perfil.endereco);
     _profissaoController = TextEditingController(text: widget.perfil.profissao);
+    _fotoController = TextEditingController(text: 'https://mercadohoje.uai.com.br/wp-content/uploads/2022/02/venda-vasco-1280x720.jpg');
   }
 
   void _salvarFormulario() {
@@ -42,6 +44,7 @@ class _CadastroPessoaPageState extends State<FormPerfil> {
         telefone: _telefoneController.text,
         endereco: _enderecoController.text,
         profissao: _profissaoController.text,
+        imagem: _fotoController.text,
       );
 
       ScaffoldMessenger.of(context).showSnackBar(
@@ -88,6 +91,10 @@ class _CadastroPessoaPageState extends State<FormPerfil> {
               TextFormField(
                 controller: _profissaoController,
                 decoration: const InputDecoration(labelText: 'Profissão'),
+              ),
+              TextFormField(
+                controller: _fotoController,
+                decoration: const InputDecoration(labelText: 'URL da Foto'),
               ),
               const SizedBox(height: 20),
               ElevatedButton(
